@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 export const PasswordAuth = ({ onAuth }) => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState("user1");
+  const [password, setPassword] = useState("qwe123");
   return (
     <div style={{ display: "flex", flexDirection: "column", width: "300px" }}>
       <label>Name</label>
