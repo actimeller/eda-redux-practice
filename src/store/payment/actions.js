@@ -1,34 +1,56 @@
-export const SET_AMOUNT = "SET_AMOUNT";
+import * as types from "./types";
 
 export const setAmount = (amount) => ({
-  type: SET_AMOUNT,
+  type: types.SET_AMOUNT,
   payload: {
     amount,
   },
 });
 
-export const SET_STATE = "SET_STATE";
-
 export const setState = (state) => ({
-  type: SET_STATE,
+  type: types.SET_STATE,
   payload: {
     state,
   },
 });
 
-export const PAYMENT_ERROR = "PAYMENT_ERROR";
 export const paymentError = (error) => ({
-  type: PAYMENT_ERROR,
+  type: types.PAYMENT_ERROR,
   payload: {
     error,
   },
 });
 
-export const PAYMENT_RESET = "PAYMENT_RESET";
+export const errorIncrement = () => ({
+  type: types.ERROR_INCREMENT,
+});
+
+export const errorReset = () => ({
+  type: types.ERROR_RESET,
+});
 
 export const paymentReset = (error) => ({
-  type: PAYMENT_RESET,
+  type: types.PAYMENT_RESET,
   payload: {
     error,
   },
+});
+
+export const setAuthToken = (token) => ({
+  type: types.SET_AUTH_TOKEN,
+  payload: {
+    token,
+  },
+});
+
+export const syncAuthRequest = (credentials) => ({
+  type: types.ASYNC_AUTH_REQUEST,
+  payload: {
+    credentials,
+  },
+});
+
+export const asyncSend2FACode = (payload) => ({
+  type: types.ASYNC_SEND_2FA_CODE,
+  payload,
 });
