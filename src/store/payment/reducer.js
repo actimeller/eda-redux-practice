@@ -1,4 +1,4 @@
-import { PAYMENT_ERROR, PAYMENT_RESET, SET_STATE, SET_AMOUNT } from "./actions";
+import * as types from "./types";
 
 export const paymentState = {
   amountSelection: "amountSelection",
@@ -9,34 +9,57 @@ export const paymentState = {
 
 const initialState = {
   paymentState: paymentState.amountSelection,
-  error: null,
+  errorCounter: 0,
   amount: 0,
+  authToken: null,
 };
 
 export const paymentReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_AMOUNT: {
+    case types.SET_AMOUNT: {
       return {
         ...state,
         amount: action.payload.amount,
       };
     }
 
-    case PAYMENT_RESET: {
+    case types.PAYMENT_RESET: {
       return initialState;
     }
 
-    case PAYMENT_ERROR: {
+    case types.PAYMENT_ERROR: {
       return {
         ...state,
         error: action.payload.error,
       };
     }
 
-    case SET_STATE: {
+    case types.SET_STATE: {
       return {
         ...state,
         paymentState: action.payload.state,
+      };
+    }
+
+    case types.SET_AUTH_TOKEN: {
+      return {
+        ...state,
+        authToken: action.payload.token,
+      };
+    }
+
+    case types.ERROR_INCREMENT: {
+      return {
+        ...state,
+        errorCounter: state.errorCounter + 1,
+      };
+    }
+
+    case types.ERROR_RESET: {
+      return {
+        ...state,
+        errorCounter: 0,
+        error: null,
       };
     }
 
@@ -44,3 +67,5 @@ export const paymentReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default paymentReducer;

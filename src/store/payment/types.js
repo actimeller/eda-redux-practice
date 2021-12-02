@@ -1,0 +1,10 @@
+export const SET_AMOUNT = "SET_AMOUNT";
+export const SET_STATE = "SET_STATE";
+export const PAYMENT_ERROR = "PAYMENT_ERROR";
+export const PAYMENT_RESET = "PAYMENT_RESET";
+export const SET_AUTH_TOKEN = "SET_AUTH_TOKEN";
+export const ERROR_INCREMENT = "ERROR_INCREMENT";
+export const ERROR_RESET = "ERROR_RESET";
+
+export const ASYNC_AUTH_REQUEST = "ASYNC_AUTH_REQUEST";
+export const ASYNC_SEND_2FA_CODE = "ASYNC_SEND_2FA_CODE";
